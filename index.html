@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataformas Educacionais · Guia Completo 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f7fc;
+            color: #212121;
+            line-height: 1.5;
+        }
+
+        :root {
+            --azul-profundo: #0a2f6c;
+            --vermelho-destaque: #d32f2f;
+            --preto-texto: #212121;
+            --cinza-fundo: #f5f7fa;
+            --branco-card: #ffffff;
+            --cinza-borda: #e0e4e9;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        header {
+            background-color: var(--azul-profundo);
+            color: white;
+            padding: 0.6rem 0;
+            border-bottom: 4px solid var(--vermelho-destaque);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            max-height: 58px;
+            width: auto;
+            display: block;
+            border-radius: 8px;
+            background: white;
+            padding: 4px;
+        }
+
+        .titulo-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .titulo-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .tab-bar {
+            background-color: white;
+            border-bottom: 2px solid var(--cinza-borda);
+            padding: 0.5rem 2rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.1rem;
+            position: sticky;
+            top: 86px;
+            z-index: 15;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            border-radius: 30px 30px 0 0;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+        }
+
+        .tab-button.active {
+            color: var(--azul-profundo);
+            border-bottom: 3px solid var(--vermelho-destaque);
+            background: #f0f4fa;
+        }
+
+        .tab-button:hover {
+            background: #eef3fb;
+            color: var(--azul-profundo);
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active-pane {
+            display: block;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--vermelho-destaque);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--azul-profundo);
+            border-left: 6px solid var(--vermelho-destaque);
+            padding-left: 1rem;
+            margin: 2rem 0 1.2rem 0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--preto-texto);
+            margin: 1.5rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: var(--branco-card);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.08);
+            border: 1px solid var(--cinza-borda);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--azul-profundo);
+        }
+
+        .card-vermelho {
+            border-top: 5px solid var(--vermelho-destaque);
+        }
+
+        .card-azul {
+            border-top: 5px solid var(--azul-profundo);
+        }
+
+        .lista-destaque {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .lista-destaque li {
+            padding: 0.6rem 0 0.6rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%23d32f2f"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.95rem;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        th {
+            background-color: var(--azul-profundo);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 16px;
+        }
+
+        .link-documento {
+            color: var(--vermelho-destaque);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .link-documento:hover {
+            border-bottom-color: var(--vermelho-destaque);
+        }
+
+        .callout {
+            background: #fff1f0;
+            border-left: 5px solid var(--vermelho-destaque);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .btn-link {
+            background: var(--vermelho-destaque);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.8rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-link:hover {
+            background: white;
+            color: var(--vermelho-destaque);
+            border-color: var(--vermelho-destaque);
+        }
+
+        footer {
+            background-color: var(--preto-texto);
+            color: #ccc;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--vermelho-destaque);
+        }
+
+        .destaque-numero {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            line-height: 1;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .header-flex { flex-direction: column; align-items: start; }
+            h2 { font-size: 1.5rem; }
+            .tab-bar { top: 118px; padding: 0.5rem 1rem 0; }
+            .tab-button { padding: 0.6rem 1rem; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <img src="https://i.ibb.co/0p01LzxB/logo3de.jpg" alt="logo orientação de estudos">
+        </div>
+        <div class="titulo-header">
+            <h1>Plataformas Educacionais · Guia 2026</h1>
+            <p>Start by Alura · Robótica · Khan · Matific · Prepara SP · Empreendedorismo · Speak · Prontos pro Mundo · Leia SP · Elefante Letrado · Redação Paulista · Super BI</p>
+        </div>
+    </div>
+</header>
+
+<!-- Abas de navegação (todas as plataformas + Escola Total) -->
+<div class="tab-bar">
+    <button class="tab-button active" data-tab="escola-total">🏫 ESCOLA TOTAL (Super BI)</button>
+    <button class="tab-button" data-tab="alura">🤖 Start Alura</button>
+    <button class="tab-button" data-tab="robotica">⚙️ Robótica</button>
+    <button class="tab-button" data-tab="khan">📐 Khan Academy</button>
+    <button class="tab-button" data-tab="matific">🧮 Matific</button>
+    <button class="tab-button" data-tab="prepara">🎯 Prepara SP</button>
+    <button class="tab-button" data-tab="empreende">💼 Empreendedorismo</button>
+    <button class="tab-button" data-tab="speak">🗣️ Speak</button>
+    <button class="tab-button" data-tab="prontos">🌎 Prontos pro Mundo</button>
+    <button class="tab-button" data-tab="leia">📖 Leia SP</button>
+    <button class="tab-button" data-tab="elefante">🐘 Elefante Letrado</button>
+    <button class="tab-button" data-tab="redacao">✍️ Redação Paulista</button>
+</div>
+
+<main class="container">
+
+    <!-- ========== ABA ESCOLA TOTAL (SUPER BI) – COMPLETÍSSIMA ========= -->
+    <div id="tab-escola-total" class="tab-pane active-pane">
+        <div class="badge" style="background: var(--azul-profundo);">Documento orientador · Super BI 2026</div>
+        <p style="font-size: 1.2rem; margin: 1.2rem 0 0 0; background: white; padding: 1.5rem; border-radius: 20px; border: 1px solid var(--cinza-borda);">
+            <strong>Super BI – Escola Total</strong> – Painel que integra indicadores de frequência (alunos e professores), desempenho nas plataformas, formação, apoio presencial e cumprimento de metas do SARESP. Gera uma nota composta para a unidade escolar, com pesos específicos, permitindo monitoramento contínuo e ações pedagógicas baseadas em evidências.
+        </p>
+
+        <h2>⸻ Componentes e pesos (válidos até 19/10/2026)</h2>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Indicador</th><th>Peso</th><th>Descrição resumida</th></tr>
+                <tr><td>Aluno Presente</td><td>1,5</td><td>Percentual médio de frequência dos estudantes (lançamentos no diário)</td></tr>
+                <tr><td>Professor Presente</td><td>1,0</td><td>Percentual de presença dos docentes (processado pelo RH)</td></tr>
+                <tr><td>Plataformas</td><td>2,0</td><td>Nota composta pelo desempenho dos alunos nas plataformas (conforme metas específicas)</td></tr>
+                <tr><td>Formação</td><td>2,0</td><td>Percentual de conclusão de PdA (Planejamento de Aulas) e participação no Multiplica</td></tr>
+                <tr><td>SARESP</td><td>3,0</td><td>Índice de Cumprimento (IC) da meta estabelecida para a escola (considera último resultado)</td></tr>
+                <tr><td>Apoio Presencial</td><td>0,5</td><td>Média de apoios realizados por membro da equipe gestora por semana</td></tr>
+                <tr><td>Ajuste de Desigualdades</td><td>1,0</td><td>Complemento para escolas com maior vulnerabilidade</td></tr>
+            </table>
+        </div>
+        <p><strong>Nota máxima possível:</strong> 11 pontos. <span class="badge" style="background: var(--azul-profundo);">A partir de 20/10</span> os pesos de Aluno Presente e Apoio Presencial aumentam (respectivamente 2,5 e 1,0) e Plataformas deixa de pontuar.</p>
+
+        <h3>📊 Metas e faróis de acompanhamento (por indicador)</h3>
+        <div class="table-responsive">
+            <table>
+                <tr><th>Indicador</th><th>🔴 Vermelho</th><th>🟡 Amarelo</th><th>🟢 Verde</th></tr>
+                <tr><td>Aluno Presente</td><td>&lt;85%</td><td>85% a 90%</td><td>≥90%</td></tr>
+                <tr><td>Professor Presente</td><td>&lt;87,5%</td><td>87,5% a 92,5%</td><td>≥92,5%</td></tr>
+                <tr><td>Plataformas (nota 0-10)</td><td>&lt;5</td><td>5 a 7,5</td><td>≥7,5</td></tr>
+                <tr><td>Formação (% PdA+Multiplica)</td><td>&lt;50%</td><td>50% a 75%</td><td>≥75%</td></tr>
+                <tr><td>Apoio (média por gestor/semana)</td><td>&lt;2</td><td>2 a 3</td><td>≥3</td></tr>
+                <tr><td>SARESP (IC da meta)</td><td>&lt;60%</td><td>60% a 90%</td><td>≥90%</td></tr>
+            </table>
+        </div>
+
+        <h3>📈 Detalhamento do cálculo de cada indicador</h3>
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h4>Aluno Presente</h4>
+                <p>Frequência = (registros de presença) / (total de registros de presença+ausência) no período. A pontuação é linear: ex: 71% → 0,03; 85% → 0,52; 97% → 1,0 (máximo).</p>
+                <p><em>Exemplo:</em> 92% de frequência → 0,80 pts → com peso 1,5 → 1,2 pontos no Super BI.</p>
+            </div>
+            <div class="card card-azul">
+                <h4>Professor Presente</h4>
+                <p>Acumulado desde o início do ano, processado mensalmente (dia 10). A pontuação começa a partir de 80%: 81% → 0,03; 87,5% → 0,31; 95% → 0,71; 100% → 1,0.</p>
+                <p><em>Exemplo:</em> 92,5% → 0,57 × peso 1,0 = 0,57 pts.</p>
+            </div>
+            <div class="card card-azul">
+                <h4>Plataformas</h4>
+                <p>Nota composta a partir do percentual de cumprimento das metas de cada plataforma, ponderado por ciclo (Anos Iniciais, Finais, EM). Veja tabelas detalhadas nas abas específicas. A nota da escola é convertida em pontuação: 7,5 na nota → 0,55; 9,0 → 0,80; 10,0 → 1,0. Multiplica pelo peso 2,0.</p>
+            </div>
+            <div class="card card-azul">
+                <h4>Formação</h4>
+                <p>1º semestre: 50% PdA concluídos + 50% tempo assistido no Multiplica. 2º semestre: 50% PdA + 50% (0,3×inscritos + tempo assistido). A pontuação é linear até 1,0 (máximo). Ex: 68% → 0,44 × peso 2,0 = 0,88.</p>
+            </div>
+            <div class="card card-azul">
+                <h4>SARESP</h4>
+                <p>Índice de Cumprimento (IC) da meta estabelecida para a escola (considerando último SARESP e a meta para 2024). 50% da meta = 0,42; 70% = 0,82; 100% = 1,0. Multiplica pelo peso 3,0.</p>
+                <p><em>Exemplo:</em> IC = 70% → 0,82 × 3 = 2,46 pts.</p>
+            </div>
+            <div class="card card-azul">
+                <h4>Apoio Presencial</h4>
+                <p>Número total de apoios realizados dividido por (membros da equipe gestora × semanas no período). Índice 3,0 atinge 1,0 ponto. Ex: 2,4 apoios/gestor → 0,53 × peso 0,5 = 0,265.</p>
+            </div>
+        </div>
+
+        <h3>🧮 Exemplo prático de cálculo da nota da escola</h3>
+        <div class="callout">
+            <p><strong>Escola Estadual "Aprender" (dados hipotéticos):</strong><br>
+            • Aluno Presente = 92% → 0,80 → (0,80 × 1,5) = 1,20<br>
+            • Professor Presente = 88% → 0,33 → (0,33 × 1,0) = 0,33<br>
+            • Plataformas = nota 6,5 → 0,47 (tabela) → (0,47 × 2,0) = 0,94<br>
+            • Formação = 68% → 0,44 → (0,44 × 2,0) = 0,88<br>
+            • SARESP = IC 70% → 0,82 → (0,82 × 3,0) = 2,46<br>
+            • Apoio = 2,4 → 0,53 → (0,53 × 0,5) = 0,265<br>
+            • Ajuste desigualdades = 1,0 (fixo)<br>
+            <strong>Nota total = 1,20+0,33+0,94+0,88+2,46+0,265+1,0 = 7,075</strong> (de 11).</p>
+        </div>
+
+        <h3>❓ Dúvidas Frequentes (extraídas do documento oficial)</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Aluno Presente</h4>
+                <ul class="lista-destaque">
+                    <li>Visita a museu ou participação em jogos escolares não prejudica a frequência (são consideradas atividades letivas).</li>
+                    <li>Feriado municipal não afeta o indicador.</li>
+                    <li>O registro de conteúdo no diário não impacta o indicador de aulas dadas.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Professor Presente</h4>
+                <ul class="lista-destaque">
+                    <li>A pontuação só começa a partir de 80% de presença acumulada.</li>
+                    <li>Professor que acompanha alunos em visita não tem falta computada.</li>
+                    <li>100% de presença é necessário para pontuação máxima (1,0).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>SARESP</h4>
+                <ul class="lista-destaque">
+                    <li>As metas são diferentes para Anos Iniciais, Finais e Ensino Médio.</li>
+                    <li>Metas também diferem entre escolas PEI e parciais.</li>
+                    <li>A nota do SARESP impacta o Super BI durante todo o ano (resultado fixo).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Apoio Presencial</h4>
+                <ul class="lista-destaque">
+                    <li>Apoios realizados em qualquer turma (inclusive Anos Iniciais) são contabilizados.</li>
+                    <li>O feedback dado na segunda-feira conta para a semana seguinte (sem prejuízo).</li>
+                </ul>
+            </div>
+        </div>
+        <p class="link-documento">📌 <a href="#" class="link-documento">Acesse o painel Super BI na Sala do Futuro</a></p>
+    </div>
+
+    <!-- ========== START by ALURA – VERSÃO DETALHADA ========= -->
+    <div id="tab-alura" class="tab-pane">
+        <div class="badge">Start by Alura</div>
+        <h2>🤖 Programação e Pensamento Computacional</h2>
+        <p><strong>Start by Alura</strong> é a plataforma que guia o ensino-aprendizagem dos componentes de Tecnologia e Inovação (EAF) e Programação (IF-EM). Por meio de atividades práticas e desenvolvimento de projetos, os estudantes usam a programação como meio para desenvolver habilidades relacionadas à computação: pensamento computacional, cultura e tecnologia digital, além de criatividade, espírito investigativo e trabalho em grupo.</p>
+
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h3>🎯 Intencionalidade pedagógica</h3>
+                <p>Desenvolver o pensamento computacional de forma interdisciplinar e contextualizada, oferecendo uma experiência completa com tutoriais, exercícios práticos e recursos digitais. A plataforma permite que os alunos solucionem problemas complexos a partir da linguagem algorítmica, reconhecendo padrões e condições, sempre com a mediação do professor.</p>
+            </div>
+            <div class="card card-azul">
+                <h3>👥 Público-alvo</h3>
+                <ul class="lista-destaque">
+                    <li><strong>Tecnologia e Inovação:</strong> 6º EF (apenas PEI 7h/9h), 7º EF, 8º EF, 9º EF (apenas PEI 7h/9h).</li>
+                    <li><strong>Programação:</strong> 2ª e 3ª séries do EM (Itinerário de Matemática e Ciências da Natureza).</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Prática de atividades de programação com interface amigável (StartLab para programação em blocos).</li>
+            <li>Conteúdo completo dentro da plataforma, com planos de aula e recursos didáticos para o professor.</li>
+            <li>Ferramentas de avaliação diagnóstica, formativa e somativa, com painel de gestão para acompanhamento de entregas e desempenho.</li>
+            <li>PDAs (Planejamento de Aulas) semanais no AVA-EFAPE, produzidos pela Alura em parceria com a EFAPE.</li>
+        </ul>
+
+        <h3>📅 Integração à rotina escolar</h3>
+        <p>As aulas de programação acontecem no componente Tecnologia e Inovação (Anos Finais) e Programação (2ª/3ª EM). As dinâmicas ocorrem na plataforma Alura e nos ambientes de programação como o StartLab. O Escopo-Sequência 2026 está disponível no link oficial. As atividades são realizadas dentro e fora da plataforma, sempre mediadas pelo professor.</p>
+
+        <h3>👩‍🏫 Orientações ao professor (antes/durante/depois)</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Antes da aula</h4>
+                <ul>
+                    <li>Assistir aos PDAs referentes à aula da semana.</li>
+                    <li>Estudar o material de apoio destinado aos professores na plataforma Alura.</li>
+                    <li>Fazer a Unidade de Formação Docente correspondente.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Durante a aula</h4>
+                <ul>
+                    <li>Mediar dinâmicas de reflexão e aquisição de conhecimento sobre as práticas e conteúdos propostos.</li>
+                    <li>Apoiar dúvidas sobre conteúdo, plataforma e ambiente de programação.</li>
+                    <li>Identificar estudantes com maiores dificuldades ou aptidões para direcioná-los.</li>
+                    <li>Corrigir ou fazer os exercícios junto à turma para retomar conceitos.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Pós-aula</h4>
+                <ul>
+                    <li>Estudar o painel de gestão para entender o engajamento da turma e de cada estudante.</li>
+                    <li>Avaliar projetos entregues com base nas orientações do Escopo-Sequência.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo prático (6º ano):</strong> Aula sobre "criação de um jogo simples no Scratch". Professor assiste ao PDA, prepara a turma, alunos acessam a plataforma e desenvolvem o projeto em duplas. Ao final, enviam o link do projeto via atividade no CMSP. O professor acompanha as entregas no painel da Alura e avalia.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p>Para a plataforma Alura, a meta é que os alunos realizem <strong>≥ 3 exercícios corretos até a 2ª tentativa</strong> (métrica calculada semanalmente). Atingir essa meta contribui para a nota do indicador "Plataformas".</p>
+
+        <h3>📞 Suporte Alura</h3>
+        <ul class="lista-destaque">
+            <li>Whatsapp: +55 11 94942-1234</li>
+            <li>Telefone: 0800 552 3000</li>
+            <li>E-mail: atendimento.alurastart@alura.com.br</li>
+            <li>Central de ajuda: <a href="#" class="link-documento">suporte-alurastart.alura.com.br</a></li>
+        </ul>
+        <p class="link-documento">🔗 <a href="#" class="link-documento">Escopo-Sequência 2026 (link simbólico)</a></p>
+    </div>
+
+    <!-- ========== ROBÓTICA – DETALHADA ========= -->
+    <div id="tab-robotica" class="tab-pane">
+        <div class="badge">Robótica</div>
+        <h2>⚙️ Aprender fazendo: robótica educacional com micro:bit</h2>
+        <p>A robótica educacional consiste no uso de objetos combinados com dispositivos eletromecânicos e eletrônicos para automação de tarefas e resolução de problemas, integrando criatividade, programação e trabalho colaborativo. A proposta baseia-se no construcionismo (Seymour Papert), onde os alunos constroem modelos mentais através da experimentação "mão na massa".</p>
+
+        <div class="card-grid">
+            <div class="card card-vermelho">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Desenvolver pensamento científico, pensamento computacional, empatia e cooperação. A robótica promove a aplicação prática de conceitos abstratos, tornando as aulas dinâmicas e atrativas, contribuindo para o pilar "aprender a fazer" da UNESCO.</p>
+            </div>
+            <div class="card card-vermelho">
+                <h3>👥 Público-alvo</h3>
+                <ul>
+                    <li>Professores com aula atribuída de Robótica em escolas PEI de 9 horas (Anos Finais e EM).</li>
+                    <li>Estudantes do 6º ao 9º EF e EM (PEI 9h).</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🔧 Principais recursos e materiais</h3>
+        <ul class="lista-destaque">
+            <li>Kits de robótica (micro:bit, sensores, atuadores) – 1 kit para cada 4 estudantes.</li>
+            <li>Plataforma online de programação MakeCode (acesso via Sala do Futuro).</li>
+            <li>Material Digital com sequências didáticas, tutoriais em vídeo (playlists por ano).</li>
+            <li>Gerenciador de tarefas do CMSP para envio das "atividades do dia".</li>
+        </ul>
+
+        <h3>📅 Integração à rotina escolar (PEI 9h)</h3>
+        <p>2 aulas semanais de Robótica (preferencialmente em dobradinha). Recomenda-se não sobrepor horários de diferentes turmas para otimizar o uso dos kits. Consulte o Escopo-Sequência 2026 para a organização das aulas.</p>
+
+        <h3>👩‍🏫 Orientações detalhadas ao professor</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Antes da aula</h4>
+                <ul>
+                    <li>Assistir aos PdAs de Robótica semanalmente.</li>
+                    <li>Baixar e estudar os Materiais Digitais (slides, seção "Dica do professor").</li>
+                    <li>Assistir aos vídeos tutoriais (playlists: 6º, 7º, 8º, 9º, 1ªEM, 2ª/3ªEM).</li>
+                    <li>Enviar a "atividade do dia" com antecedência via gerenciador (códigos: efrob6e7, efrob08, efrob09, emrob123).</li>
+                    <li>Separar os componentes do kit e testar a programação.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Durante a aula</h4>
+                <ul>
+                    <li>Fazer introdução contextualizada antes de partir para a atividade.</li>
+                    <li>Organizar grupos de até 4 estudantes por kit.</li>
+                    <li>Nas aulas de programação, trabalhar individualmente ou em duplas no MakeCode.</li>
+                    <li>Realizar a "atividade do dia" junto com os alunos, orientando o registro.</li>
+                    <li>Garantir que os estudantes façam login no MakeCode com e-mail institucional para salvar histórico.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Após a aula</h4>
+                <ul>
+                    <li>Acompanhar os envios no gerenciador e analisar acertos/desenvolvimento.</li>
+                    <li>Avaliar pelo menos um projeto por mês usando rubricas do Escopo-Sequência.</li>
+                    <li>Preparar a próxima aula (verificar materiais, assistir ATPC).</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>📝 Avaliação</h3>
+        <p>Composição da nota: desempenho nas entregas (rubricas) + acertos nas questões fechadas + engajamento. No 1º bimestre o professor define pesos; nos bimestres seguintes será publicado um guia de apoio.</p>
+
+        <div class="callout">
+            <p><strong>🔧 Exemplo (7º ano):</strong> Aula sobre semáforo com LEDs. Alunos programam no MakeCode, montam o circuito, tiram foto do projeto e enviam como "atividade do dia". Professor avalia com base na rubrica: funcionamento, organização do código, trabalho em equipe.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p>A robótica não possui meta isolada no Super BI; seu uso impacta indiretamente o aprendizado. As atividades enviadas contribuem para o indicador de engajamento, mas não há métrica específica.</p>
+
+        <h3>📦 Kits de robótica</h3>
+        <p>Composição e orientações de recebimento: clique aqui (acesso restrito a e-mail @servidor). Dúvidas sobre recebimento: boletim semanal subsecretaria nº 49, de 20/12/2024.</p>
+        <p class="link-documento">📺 <a href="#" class="link-documento">Playlists tutoriais (YouTube)</a></p>
+    </div>
+
+    <!-- ========== KHAN ACADEMY – DETALHADA ========= -->
+    <div id="tab-khan" class="tab-pane">
+        <div class="badge">Khan Academy</div>
+        <h2>📐 Matemática personalizada com tecnologia adaptativa</h2>
+        <p>A Khan Academy é um Recurso Pedagógico Digital (RPD) com exercícios interativos, vídeos e painel de gestão, focado em Matemática para o Ensino Médio. Alinhada à BNCC e ao Currículo Paulista, permite que os estudantes aprendam no próprio ritmo, fortalecendo habilidades essenciais.</p>
+
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Apoiar docentes e estudantes no aprimoramento das habilidades matemáticas, promovendo aprendizado equitativo e personalizado. Favorece diagnósticos precisos e intervenções assertivas por meio de relatórios detalhados e tecnologia adaptativa.</p>
+            </div>
+            <div class="card card-azul">
+                <h3>👥 Público-alvo</h3>
+                <p>Estudantes do Ensino Médio (Matemática – Formação Geral Básica). Educadores e gestores podem acompanhar o progresso.</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li><strong>Tecnologia adaptativa:</strong> ajusta automaticamente os conteúdos conforme a proficiência.</li>
+            <li><strong>Cursos e vídeos online:</strong> biblioteca extensa alinhada à BNCC.</li>
+            <li><strong>Exercícios autocorrigidos:</strong> devolutivas em tempo real.</li>
+            <li><strong>Relatórios detalhados:</strong> por estudante, turma e escola.</li>
+            <li><strong>Material Digital "Aula Khan – Revisão":</strong> alinhado ao Escopo-Sequência, com recomendações personalizadas.</li>
+        </ul>
+
+        <h3>📅 Integração à rotina escolar</h3>
+        <p>Recomenda-se 2 atividades completas por mês (1 teste por quinzena). Cada "atividade" equivale a um conjunto de exercícios agrupados. O objetivo é diagnosticar habilidades consolidadas e lacunas, subsidiando agrupamentos produtivos e trilhas de recomposição ou avanço.</p>
+
+        <h3>👩‍🏫 Orientações ao professor (ciclo quinzenal)</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Planejamento</h4>
+                <ul>
+                    <li>Selecionar as habilidades prioritárias da quinzena no Material Digital "Aula Khan – Revisão".</li>
+                    <li>Definir a aplicação de 1 teste diagnóstico.</li>
+                    <li>Planejar agrupamentos por nível de proficiência (com base em relatórios anteriores).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Durante a aula</h4>
+                <ul>
+                    <li>Orientar os alunos a usar o caderno para registrar raciocínios.</li>
+                    <li>Incentivar a revisão após erro (utilizar dicas, vídeos).</li>
+                    <li>Circular, observar padrões de erro e registrar evidências.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4>Pós-aula</h4>
+                <ul>
+                    <li>Analisar resultados do teste e relatórios.</li>
+                    <li>Ajustar agrupamentos e definir intervenções (recomposição para lacunas, aprofundamento para domínio).</li>
+                    <li>Realizar checagens curtas ao longo do tempo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo:</strong> Em uma turma de 1ª série EM, após teste sobre funções, o professor identifica que 40% dos alunos têm dificuldade em função afim. Cria um grupo de recomposição que recebe atividades específicas na Khan, enquanto os demais avançam para função quadrática.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p>Para a Khan Academy, a meta é que os alunos realizem <strong>≥ 3 atividades (testes) a cada 5 semanas</strong>. Atingir essa meta contribui para o indicador "Plataformas".</p>
+
+        <h3>📞 Suporte</h3>
+        <p>Central de Atendimento SEDUC (0800 77 000 12) para questões técnicas. Para dúvidas pedagógicas, utilizar os canais da EFAPE.</p>
+        <p class="link-documento">📈 <a href="#" class="link-documento">Relatórios disponíveis no Painel BI</a></p>
+    </div>
+
+    <!-- ========== MATIFIC – DETALHADA ========= -->
+    <div id="tab-matific" class="tab-pane">
+        <div class="badge">Matific</div>
+        <h2>🧮 Matemática gamificada para Anos Iniciais e Finais</h2>
+        <p>Matific é um RPD com jogos e atividades interativas desenvolvidas por especialistas. A abordagem lúdica engaja os estudantes e apoia a construção do raciocínio matemático, gerando evidências para intervenções pedagógicas.</p>
+
+        <div class="card-grid">
+            <div class="card card-vermelho">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Fornecer subsídios para identificar o que já foi consolidado e o que demanda intervenção. Os relatórios apontam avanços, dificuldades recorrentes e necessidades específicas, permitindo planejamento mais preciso.</p>
+            </div>
+            <div class="card card-vermelho">
+                <h3>👥 Público-alvo</h3>
+                <p>Ensino Fundamental (Anos Iniciais e Anos Finais).</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li><strong>Trabalho Atribuído (Material Digital – trilha):</strong> atividades alinhadas ao Escopo-Sequência, organizadas por ano.</li>
+            <li><strong>Ilha da Aventura:</strong> percurso com diagnóstico inicial e trilha adaptativa.</li>
+            <li><strong>Arena:</strong> modo coletivo mediado pelo professor.</li>
+        </ul>
+
+        <h3>📅 Integração à rotina escolar</h3>
+        <p><strong>Anos Iniciais:</strong> 1 atividade permanente por semana (4 jogos).<br>
+        <strong>Anos Finais:</strong> 1 jogo semanal (aula de revisão, conforme Material Digital).</p>
+
+        <h3>👩‍🏫 Orientações ao professor (ciclo quinzenal)</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Antes</h4>
+                <ul><li>Conhecer a atividade/jogo, antecipando objetivos e possíveis dúvidas.</li><li>Selecionar a atividade em coerência com as habilidades da semana.</li><li>Retomar evidências anteriores.</li></ul>
+            </div>
+            <div class="card">
+                <h4>Durante</h4>
+                <ul><li>Apresentar a proposta e explicar o objetivo pedagógico.</li><li>Acompanhar, intervir pontualmente, incentivar registro no caderno.</li><li>Tratar o erro como aprendizado (pausar, revisar, tentar novamente).</li></ul>
+            </div>
+            <div class="card">
+                <h4>Após</h4>
+                <ul><li>Devolutiva coletiva, retomando as habilidades.</li><li>Analisar relatórios, identificar lacunas, definir intervenções.</li><li>Organizar agrupamentos por proficiência.</li></ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo (5º ano):</strong> Jogo "Arena" sobre frações equivalentes. Alunos participam em equipes; professor projeta e media. Ao final, vê no relatório quem teve mais dificuldade e planeja atividade de reforço na Ilha da Aventura.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p><strong>≥ 2 atividades concluídas por semana (com tempo total inferior a 30 min de uso).</strong> Essa meta contribui para a nota do indicador Plataformas (peso 2,0 até 19/10).</p>
+
+        <h3>📞 Suporte Matific</h3>
+        <ul>
+            <li>WhatsApp: (11) 5555-0295</li>
+            <li>E-mail: contato@matific.com</li>
+        </ul>
+    </div>
+
+    <!-- ========== PREPARA SP – DETALHADA ========= -->
+    <div id="tab-prepara" class="tab-pane">
+        <div class="badge">Prepara SP</div>
+        <h2>🎯 Preparação para ENEM, Provão Paulista e vestibulares</h2>
+        <p>Plataforma adaptativa com videoaulas, resumos, questões e IA para apoiar os estudos dos estudantes do Ensino Médio, integrada ao componente Projeto de Vida.</p>
+
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h3>🎯 Intencionalidade</h3>
+                <ul>
+                    <li>Oferecer apoio acadêmico e emocional preparatório.</li>
+                    <li>Engajar estudantes com planos personalizados.</li>
+                    <li>Familiarizar com a estrutura do ENEM e vestibulares.</li>
+                    <li>Incentivar o ingresso no Ensino Superior.</li>
+                </ul>
+            </div>
+            <div class="card card-azul">
+                <h3>👥 Público-alvo</h3>
+                <p>Estudantes do Ensino Médio e professores de Projeto de Vida.</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Plano de estudos personalizado (tempo disponível + conteúdos mais frequentes no ENEM).</li>
+            <li>Videoaulas, resumos, cards, questões rápidas.</li>
+            <li>Inteligência artificial (chatbot) para dúvidas e recomendações.</li>
+            <li>Simulados com correção TRI (provas anteriores).</li>
+        </ul>
+
+        <h3>📅 Integração à rotina escolar</h3>
+        <p>Utilizado em Projeto de Vida para discussões sobre carreira, vestibular e clubes de estudo. A trilha é individual e autônoma, mas o professor pode atuar como mentor, motivando a criação de rotina de estudos e auxiliando na pesquisa de editais.</p>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo:</strong> Um estudante da 3ª série que deseja cursar engenharia dedica 30 min diários ao Prepara. A plataforma sugere conteúdos com base no histórico de erros. Em Projeto de Vida, o professor debate com a turma sobre as experiências e auxilia na interpretação dos simulados.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p>Não há meta específica para o Prepara SP no Super BI 2026. Seu uso é qualitativo e contribui para o desenvolvimento dos estudantes.</p>
+    </div>
+
+    <!-- ========== PROJETO DE EMPREENDEDORISMO ========= -->
+    <div id="tab-empreende" class="tab-pane">
+        <div class="badge">Empreendedorismo</div>
+        <h2>💼 Plataforma de projetos (3ª série EM)</h2>
+        <p>Ferramenta online de aprendizagem baseada em projetos para o componente Empreendedorismo. Os alunos criam e desenvolvem projetos (individualmente no noturno, em grupo no diurno) seguindo etapas definidas.</p>
+
+        <div class="card-grid">
+            <div class="card card-vermelho">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Facilitar o desenvolvimento de cada etapa dos projetos, com entregas feitas na plataforma. A proposta pedagógica é de um projeto concluído por semestre, integrado ao Projeto de Vida para composição de um plano de negócios.</p>
+            </div>
+            <div class="card card-vermelho">
+                <h3>👥 Público-alvo</h3>
+                <p>3ª série do Ensino Médio (componente Empreendedorismo – Itinerário Formativo).</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Aprendizagem baseada em projetos (14 etapas por bimestre).</li>
+            <li>Mural para compartilhamento e apresentações.</li>
+            <li>Devolutiva direta sobre cada etapa concluída.</li>
+            <li>Glossário, arquivos e guia de navegação integrados.</li>
+        </ul>
+
+        <h3>👩‍🏫 Orientação ao professor</h3>
+        <p>O professor acompanha a liberação das etapas, valida cada entrega e libera a seguinte. Para o período noturno (expansão), o uso é individual e as atividades avaliativas somam para a média final. Para completar todas as etapas dentro do prazo, o aluno obtém nota máxima (10).</p>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo (diurno):</strong> Um grupo decide criar um projeto de "aplicativo de caronas solidárias". Na plataforma, preenchem as etapas: problema, solução, canvas, protótipo, pitch. O professor valida cada etapa e, ao final, o grupo apresenta o projeto para a turma.</p>
+        </div>
+
+        <p class="link-documento">📚 <a href="#" class="link-documento">Tutoriais para estudantes (Google Drive)</a></p>
+    </div>
+
+    <!-- ========== SPEAK – DETALHADA ========= -->
+    <div id="tab-speak" class="tab-pane">
+        <div class="badge">Speak</div>
+        <h2>🗣️ Inglês por nível de proficiência (A1 a C2)</h2>
+        <p>Plataforma de estudos personalizados de língua inglesa, desenvolvendo as quatro habilidades (leitura, escrita, compreensão auditiva e conversação) de acordo com o nível atual do estudante.</p>
+
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h3>🎯 Intencionalidade</h3>
+                <ul>
+                    <li>Fortalecer o ensino de inglês com foco nas quatro habilidades.</li>
+                    <li>Permitir acompanhamento personalizado.</li>
+                    <li>Desenvolver autonomia e ampliar perspectivas culturais.</li>
+                    <li>Gerar visibilidade de engajamento e proficiência.</li>
+                </ul>
+            </div>
+            <div class="card card-azul">
+                <h3>👥 Público-alvo</h3>
+                <p>Estudantes de Língua Inglesa do 7º ano à 3ª série EM, EJA, Expansão e Centro de Línguas.</p>
+            </div>
+        </div>
+
+        <h3>🔑 Primeiros passos: teste de nivelamento</h3>
+        <p>O estudante realiza um teste inicial de vocabulário e gramática, sendo alocado em um dos 16 níveis (A1 a C2). A partir daí, segue uma trilha personalizada com unidades e lições. É fundamental reservar um momento no início do ano para todos realizarem o teste.</p>
+
+        <h3>📚 Estrutura do curso</h3>
+        <p>16 níveis, cada um com 6 unidades, cada unidade com 4 lições (speaking, writing, listening, reading). Para avançar um nível em um ano, o estudante precisa realizar 24 lições. Ao final, há uma "Final Task" que gera certificado.</p>
+
+        <h3>👩‍🏫 Painel do Professor (dashboard)</h3>
+        <ul class="lista-destaque">
+            <li>Visualização da turma com status: Alto desempenho, Em dia, Atrasado, Inativo.</li>
+            <li>IA "Addi" sugere ações: "Parabéns pela conquista", "Incentive alguém", "Cheque um problema".</li>
+            <li>Detalhamento individual: nível atual, lições concluídas, tempo de estudo.</li>
+            <li>Informações da turma: melhoria, lições concluídas mês a mês.</li>
+        </ul>
+
+        <h3>📅 Integração à rotina</h3>
+        <p>As aulas intercalam Material Digital (BNCC) e trilha na plataforma. O professor deve seguir o Escopo-Sequência para equilibrar os dois recursos.</p>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo:</strong> Uma aluna do 9º ano é alocada no nível A2, unidade 3. Ela pratica "listening" com vídeos e, em sala, o professor trabalha o material digital sobre "global issues". No painel, o professor vê que ela está com dificuldade em uma lição e oferece apoio individualizado.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p><strong>≥ 0,375 lições por semana (média).</strong> Essa meta contribui para o indicador Plataformas.</p>
+
+        <h3>📞 Suporte</h3>
+        <p>Central de Atendimento SEDUC (0800 77 000 12) para questões técnicas.</p>
+        <p class="link-documento">📘 <a href="#" class="link-documento">Certificado de nível disponível na plataforma</a></p>
+    </div>
+
+    <!-- ========== PRONTOS PRO MUNDO ========= -->
+    <div id="tab-prontos" class="tab-pane">
+        <div class="badge">Inglês síncrono</div>
+        <h2>🌎 Prontos pro Mundo – Fase 1 (inglês intensivo)</h2>
+        <p>Curso de inglês ao vivo no contraturno, com professores nativos, para estudantes selecionados conforme edital. Foco na comunicação oral e preparação para intercâmbio.</p>
+
+        <div class="card-grid">
+            <div class="card card-vermelho">
+                <h3>🎯 Intencionalidade</h3>
+                <ul>
+                    <li>Promover comunicação oral em inglês com interações ao vivo.</li>
+                    <li>Ampliar exposição qualificada ao idioma.</li>
+                    <li>Fortalecer confiança e autonomia.</li>
+                    <li>Preparar para experiências interculturais.</li>
+                </ul>
+            </div>
+            <div class="card card-vermelho">
+                <h3>👥 Público-alvo (elegibilidade)</h3>
+                <ul>
+                    <li>14 anos ou mais.</li>
+                    <li>Matriculado na rede desde o 6º EF.</li>
+                    <li>Não selecionado em edições anteriores.</li>
+                    <li>Autorização dos pais.</li>
+                    <li>Participação no SARESP 2025 e frequência ≥90% no 9º ano.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Aulas ao vivo (2x/semana, 50 min) com professores nativos.</li>
+            <li>Turmas de até 20 estudantes, organizadas por nível.</li>
+            <li>Conteúdos assíncronos complementares (notícias, expressões).</li>
+            <li>Reposição aos sábados.</li>
+        </ul>
+
+        <h3>📅 Rotina e permanência</h3>
+        <p>O estudante escolhe horário no contraturno. A frequência é monitorada; o descumprimento pode levar à descontinuidade e substituição por outro aluno da lista de espera.</p>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo:</strong> Um estudante do 1º EM participa das aulas às terças e quintas, 14h. Durante as aulas, pratica conversação com colegas e o teacher. Aos sábados, se necessário, assiste à reposição.</p>
+        </div>
+
+        <h3>📞 Suporte Open English</h3>
+        <ul>
+            <li>WhatsApp: +1 (305) 728-8968</li>
+            <li>Telefone: 4003-1474</li>
+            <li>E-mail: prontospromundo@liberty-edu.com</li>
+        </ul>
+    </div>
+
+    <!-- ========== LEIA SP ========= -->
+    <div id="tab-leia" class="tab-pane">
+        <div class="badge">Leia SP</div>
+        <h2>📖 Acervo digital de mais de 150 títulos</h2>
+        <p>Plataforma de leitura por fruição e desenvolvimento de competências leitoras, com obras literárias enriquecidas com perguntas de compreensão e recursos de acessibilidade.</p>
+
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Incentivar a leitura por fruição, desenvolver compreensão crítica e formar leitores capazes de interagir com o mundo. As estatísticas permitem ao professor atuar de forma personalizada.</p>
+            </div>
+            <div class="card card-azul">
+                <h3>👥 Público-alvo</h3>
+                <p>Redação e Leitura (Anos Finais e EM), Língua Portuguesa, professores.</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Acesso ilimitado a mais de 150 títulos (biografias, clássicos, HQ, projeto de vida, etc.).</li>
+            <li>Atividades de compreensão ao longo da obra.</li>
+            <li>Trilhas de leitura com acompanhamento de engajamento e acertos.</li>
+            <li>Customização: fonte, tamanho, contraste, fonte para dislexia.</li>
+        </ul>
+
+        <h3>📅 Integração à rotina</h3>
+        <p>Utilizado nas aulas de Redação e Leitura (Anos Finais e EM) e por professores de Língua Portuguesa. O professor pode sugerir títulos, acompanhar relatórios e promover debates.</p>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo (9º ano):</strong> A turma lê "O Cortiço" com perguntas intercaladas. O professor acompanha quem concluiu, as respostas e usa os dados para uma roda de conversa.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p><strong>≥ 120 minutos de leitura a cada 5 semanas.</strong> Meta contribui para o indicador Plataformas.</p>
+    </div>
+
+    <!-- ========== ELEFANTE LETRADO ========= -->
+    <div id="tab-elefante" class="tab-pane">
+        <div class="badge">Elefante Letrado</div>
+        <h2>🐘 Leitura para Anos Iniciais (1º ao 5º ano)</h2>
+        <p>Plataforma de leitura com biblioteca digital, jogos pedagógicos, gravação de áudio e fluencímetro, visando formar o hábito da leitura e desenvolver a compreensão leitora.</p>
+
+        <div class="card-grid">
+            <div class="card card-vermelho">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Melhorar a proficiência leitora e a participação no mundo letrado, com práticas sociais de leitura. Acompanhamento via relatórios e fluencímetro.</p>
+            </div>
+            <div class="card card-vermelho">
+                <h3>👥 Público-alvo</h3>
+                <p>Anos Iniciais (1º a 5º ano) e professores regentes.</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Biblioteca digital com diversos gêneros.</li>
+            <li>Jogos pedagógicos, escrita criativa, gravação de áudio.</li>
+            <li>Fluencímetro e níveis de proficiência (pré-leitor ao 5º ano).</li>
+            <li>Relatórios individuais e de turma.</li>
+        </ul>
+
+        <h3>📅 Integração à rotina</h3>
+        <p>1 atividade permanente por semana (mínimo 25 minutos de uso). O professor planeja a aula, considerando os níveis dos alunos, e utiliza a plataforma durante a aula.</p>
+
+        <h3>👩‍🏫 Orientações ao professor</h3>
+        <div class="card-grid">
+            <div class="card">
+                <h4>Antes</h4>
+                <ul><li>Acessar a plataforma para identificar os níveis.</li><li>Organizar ambiente para leitura.</li></ul>
+            </div>
+            <div class="card">
+                <h4>Durante</h4>
+                <ul><li>Mediar a leitura, explorar a história com perguntas.</li><li>Acompanhar o desenvolvimento.</li></ul>
+            </div>
+            <div class="card">
+                <h4>Após</h4>
+                <ul><li>Compartilhar as histórias, avaliar compreensão.</li><li>Analisar metas e relatórios para replanejar.</li></ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo (3º ano):</strong> Aluno lê uma fábula, grava sua leitura e responde a perguntas. O professor ouve o áudio e avalia a fluência, usando o fluencímetro da plataforma.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p><strong>≥ 25 minutos por aluno por semana.</strong> Meta contribui para o indicador Plataformas.</p>
+    </div>
+
+    <!-- ========== REDAÇÃO PAULISTA ========= -->
+    <div id="tab-redacao" class="tab-pane">
+        <div class="badge">Redação Paulista</div>
+        <h2>✍️ Produção textual com assistente de correção (IA)</h2>
+        <p>Plataforma para escrita de redações (gêneros diversos) com correção ortográfica automática e assistente de correção que apoia o professor na devolutiva.</p>
+
+        <div class="card-grid">
+            <div class="card card-azul">
+                <h3>🎯 Intencionalidade</h3>
+                <p>Fortalecer a competência escrita dos estudantes, ampliando as possibilidades de aprendizagem durante o processo de escrita e gerando dados para intervenções direcionadas.</p>
+            </div>
+            <div class="card card-azul">
+                <h3>👥 Público-alvo</h3>
+                <p>Professores e estudantes do componente Redação e Leitura (Anos Finais e EM).</p>
+            </div>
+        </div>
+
+        <h3>⚙️ Principais recursos</h3>
+        <ul class="lista-destaque">
+            <li>Propostas alinhadas ao Material Digital de Língua Portuguesa.</li>
+            <li>Três etapas de correção: ortográfica automática (para o aluno), sugestão da IA (para o professor), correção final do professor (nota por competência e comentários).</li>
+            <li>Produção pode ser digitada ou manuscrita (fotografada).</li>
+        </ul>
+
+        <h3>📅 Integração à rotina</h3>
+        <p>2 aulas semanais de Redação e Leitura. O professor utiliza os Guias de Práticas de Sala de Aula para planejar a produção. As redações são submetidas na plataforma.</p>
+
+        <h3>👩‍🏫 Prática docente</h3>
+        <ul class="lista-destaque">
+            <li><strong>Antes:</strong> acessar a proposta de redação do ano/série, planejar o processo.</li>
+            <li><strong>Durante:</strong> estabelecer estratégias de acompanhamento, apoiar os estudantes, verificar redações em rascunho.</li>
+            <li><strong>Após:</strong> realizar a correção com apoio da IA, validar ou devolver para ajustes.</li>
+        </ul>
+
+        <div class="callout">
+            <p><strong>📌 Exemplo (1ª série EM):</strong> Proposta: artigo de opinião sobre "impacto das redes sociais". Alunos escrevem no caderno, depois digitam na plataforma. O assistente aponta erros ortográficos. O professor recebe a sugestão de correção, ajusta e devolve com comentários.</p>
+        </div>
+
+        <h3>📊 Meta no Super BI</h3>
+        <p><strong>≥ 0,8 redações concluídas a cada 5 semanas.</strong> Meta contribui para o indicador Plataformas.</p>
+
+        <h3>📞 Dúvidas</h3>
+        <p>Central de Atendimento SEDUC: 0800 77 000 12 ou <a href="#" class="link-documento">atendimento.educacao.sp.gov.br</a></p>
+    </div>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>URE - CAIEIRAS 2026</p>
+        <p>Secretaria da Educação do Estado de São Paulo · Subsecretaria Pedagógica (SUPED)</p>
+        <p>Documento orientador 2026 – Plataformas Educacionais (4ª edição) · Super BI 2026</p>
+        <p>Central de Atendimento: 0800 77 000 12 | <a href="#">atendimento.educacao.sp.gov.br</a></p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #aaa;"></p>
+    </div>
+</footer>
+
+<script>
+    const tabs = document.querySelectorAll('.tab-button');
+    const panes = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabs.forEach(b => b.classList.remove('active'));
+            panes.forEach(p => p.classList.remove('active-pane'));
+
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(`tab-${tabId}`).classList.add('active-pane');
+            window.scrollTo({ top: 130, behavior: 'smooth' });
+        });
+    });
+</script>
+
+</body>
+</html>
