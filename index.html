@@ -111,6 +111,29 @@
             color: var(--azul-profundo);
         }
 
+        /* Estilo específico para o link externo (antiga aba da Escola Total) */
+        .link-externo-aba {
+            background: none;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            border-radius: 30px 30px 0 0;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .link-externo-aba:hover {
+            background: #eef3fb;
+            color: var(--azul-profundo);
+        }
+
         .tab-pane {
             display: none;
         }
@@ -292,6 +315,7 @@
             h2 { font-size: 1.5rem; }
             .tab-bar { top: 118px; padding: 0.5rem 1rem 0; }
             .tab-button { padding: 0.6rem 1rem; }
+            .link-externo-aba { padding: 0.6rem 1rem; }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -312,10 +336,13 @@
     </div>
 </header>
 
-<!-- Abas de navegação (todas as plataformas + Escola Total) -->
+<!-- Barra de abas: a antiga aba "Escola Total" foi substituída por um link externo -->
 <div class="tab-bar">
-    <button class="tab-button active" data-tab="escola-total">🏫 ESCOLA TOTAL (Super BI)</button>
-    <button class="tab-button" data-tab="alura">🤖 Start Alura</button>
+    <!-- Link externo com aparência de aba -->
+    <a href="https://cidoferruco.github.io/escola-total/entenda-super-bi/#/" target="_blank" rel="noopener noreferrer" class="link-externo-aba">🏫 ESCOLA TOTAL (Super BI) → site externo</a>
+    
+    <!-- Demais abas normais -->
+    <button class="tab-button active" data-tab="alura">🤖 Start Alura</button>
     <button class="tab-button" data-tab="robotica">⚙️ Robótica</button>
     <button class="tab-button" data-tab="khan">📐 Khan Academy</button>
     <button class="tab-button" data-tab="matific">🧮 Matific</button>
@@ -326,128 +353,13 @@
     <button class="tab-button" data-tab="leia">📖 Leia SP</button>
     <button class="tab-button" data-tab="elefante">🐘 Elefante Letrado</button>
     <button class="tab-button" data-tab="redacao">✍️ Redação Paulista</button>
+    <button class="tab-button" data-tab="omasp">🏆 OMASP 2026</button>
 </div>
 
 <main class="container">
 
-    <!-- ========== ABA ESCOLA TOTAL (SUPER BI) – COMPLETÍSSIMA ========= -->
-    <div id="tab-escola-total" class="tab-pane active-pane">
-        <div class="badge" style="background: var(--azul-profundo);">Documento orientador · Super BI 2026</div>
-        <p style="font-size: 1.2rem; margin: 1.2rem 0 0 0; background: white; padding: 1.5rem; border-radius: 20px; border: 1px solid var(--cinza-borda);">
-            <strong>Super BI – Escola Total</strong> – Painel que integra indicadores de frequência (alunos e professores), desempenho nas plataformas, formação, apoio presencial e cumprimento de metas do SARESP. Gera uma nota composta para a unidade escolar, com pesos específicos, permitindo monitoramento contínuo e ações pedagógicas baseadas em evidências.
-        </p>
-
-        <h2>⸻ Componentes e pesos (válidos até 14/04/2026)</h2>
-        <div class="table-responsive">
-            <table>
-                <tr><th>Indicador</th><th>Peso</th><th>Descrição resumida</th></tr>
-                <tr><td>Aluno Presente</td><td>1,5</td><td>Percentual médio de frequência dos estudantes (lançamentos no diário)</td></tr>
-                <tr><td>Professor Presente</td><td>1,0</td><td>Percentual de presença dos docentes (processado pelo RH)</td></tr>
-                <tr><td>Plataformas</td><td>2,0</td><td>Nota composta pelo desempenho dos alunos nas plataformas (conforme metas específicas)</td></tr>
-                <tr><td>Formação</td><td>2,0</td><td>Percentual de conclusão de PdA (Planejamento de Aulas) e participação no Multiplica</td></tr>
-                <tr><td>SARESP</td><td>3,0</td><td>Índice de Cumprimento (IC) da meta estabelecida para a escola (considera último resultado)</td></tr>
-                <tr><td>Apoio Presencial</td><td>0,5</td><td>Média de apoios realizados por membro da equipe gestora por semana</td></tr>
-                <tr><td>Ajuste de Desigualdades</td><td>1,0</td><td>Complemento para escolas com maior vulnerabilidade</td></tr>
-            </table>
-        </div>
-        <p><strong>Nota máxima possível:</strong> 11 pontos. <span class="badge" style="background: var(--azul-profundo);">A partir de 20/10</span> os pesos de Aluno Presente e Apoio Presencial aumentam (respectivamente 2,5 e 1,0) e Plataformas deixa de pontuar.</p>
-
-        <h3>📊 Metas e faróis de acompanhamento (por indicador)</h3>
-        <div class="table-responsive">
-            <table>
-                <tr><th>Indicador</th><th>🔴 Vermelho</th><th>🟡 Amarelo</th><th>🟢 Verde</th></tr>
-                <tr><td>Aluno Presente</td><td>&lt;85%</td><td>85% a 90%</td><td>≥90%</td></tr>
-                <tr><td>Professor Presente</td><td>&lt;87,5%</td><td>87,5% a 92,5%</td><td>≥92,5%</td></tr>
-                <tr><td>Plataformas (nota 0-10)</td><td>&lt;5</td><td>5 a 7,5</td><td>≥7,5</td></tr>
-                <tr><td>Formação (% PdA+Multiplica)</td><td>&lt;50%</td><td>50% a 75%</td><td>≥75%</td></tr>
-                <tr><td>Apoio (média por gestor/semana)</td><td>&lt;2</td><td>2 a 3</td><td>≥3</td></tr>
-                <tr><td>SARESP (IC da meta)</td><td>&lt;60%</td><td>60% a 90%</td><td>≥90%</td></tr>
-            </table>
-        </div>
-
-        <h3>📈 Detalhamento do cálculo de cada indicador</h3>
-        <div class="card-grid">
-            <div class="card card-azul">
-                <h4>Aluno Presente</h4>
-                <p>Frequência = (registros de presença) / (total de registros de presença+ausência) no período. A pontuação é linear: ex: 71% → 0,03; 85% → 0,52; 97% → 1,0 (máximo).</p>
-                <p><em>Exemplo:</em> 92% de frequência → 0,80 pts → com peso 1,5 → 1,2 pontos no Super BI.</p>
-            </div>
-            <div class="card card-azul">
-                <h4>Professor Presente</h4>
-                <p>Acumulado desde o início do ano, processado mensalmente (dia 10). A pontuação começa a partir de 80%: 81% → 0,03; 87,5% → 0,31; 95% → 0,71; 100% → 1,0.</p>
-                <p><em>Exemplo:</em> 92,5% → 0,57 × peso 1,0 = 0,57 pts.</p>
-            </div>
-            <div class="card card-azul">
-                <h4>Plataformas</h4>
-                <p>Nota composta a partir do percentual de cumprimento das metas de cada plataforma, ponderado por ciclo (Anos Iniciais, Finais, EM). Veja tabelas detalhadas nas abas específicas. A nota da escola é convertida em pontuação: 7,5 na nota → 0,55; 9,0 → 0,80; 10,0 → 1,0. Multiplica pelo peso 2,0.</p>
-            </div>
-            <div class="card card-azul">
-                <h4>Formação</h4>
-                <p>1º semestre: 50% PdA concluídos + 50% tempo assistido no Multiplica. 2º semestre: 50% PdA + 50% (0,3×inscritos + tempo assistido). A pontuação é linear até 1,0 (máximo). Ex: 68% → 0,44 × peso 2,0 = 0,88.</p>
-            </div>
-            <div class="card card-azul">
-                <h4>SARESP</h4>
-                <p>Índice de Cumprimento (IC) da meta estabelecida para a escola (considerando último SARESP e a meta para 2024). 50% da meta = 0,42; 70% = 0,82; 100% = 1,0. Multiplica pelo peso 3,0.</p>
-                <p><em>Exemplo:</em> IC = 70% → 0,82 × 3 = 2,46 pts.</p>
-            </div>
-            <div class="card card-azul">
-                <h4>Apoio Presencial</h4>
-                <p>Número total de apoios realizados dividido por (membros da equipe gestora × semanas no período). Índice 3,0 atinge 1,0 ponto. Ex: 2,4 apoios/gestor → 0,53 × peso 0,5 = 0,265.</p>
-            </div>
-        </div>
-
-        <h3>🧮 Exemplo prático de cálculo da nota da escola</h3>
-        <div class="callout">
-            <p><strong>Escola Estadual "Aprender" (dados hipotéticos):</strong><br>
-            • Aluno Presente = 92% → 0,80 → (0,80 × 1,5) = 1,20<br>
-            • Professor Presente = 88% → 0,33 → (0,33 × 1,0) = 0,33<br>
-            • Plataformas = nota 6,5 → 0,47 (tabela) → (0,47 × 2,0) = 0,94<br>
-            • Formação = 68% → 0,44 → (0,44 × 2,0) = 0,88<br>
-            • SARESP = IC 70% → 0,82 → (0,82 × 3,0) = 2,46<br>
-            • Apoio = 2,4 → 0,53 → (0,53 × 0,5) = 0,265<br>
-            • Ajuste desigualdades = 1,0 (fixo)<br>
-            <strong>Nota total = 1,20+0,33+0,94+0,88+2,46+0,265+1,0 = 7,075</strong> (de 11).</p>
-        </div>
-
-        <h3>❓ Dúvidas Frequentes (extraídas do documento oficial)</h3>
-        <div class="card-grid">
-            <div class="card">
-                <h4>Aluno Presente</h4>
-                <ul class="lista-destaque">
-                    <li>Visita a museu ou participação em jogos escolares não prejudica a frequência (são consideradas atividades letivas).</li>
-                    <li>Feriado municipal não afeta o indicador.</li>
-                    <li>O registro de conteúdo no diário não impacta o indicador de aulas dadas.</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>Professor Presente</h4>
-                <ul class="lista-destaque">
-                    <li>A pontuação só começa a partir de 80% de presença acumulada.</li>
-                    <li>Professor que acompanha alunos em visita não tem falta computada.</li>
-                    <li>100% de presença é necessário para pontuação máxima (1,0).</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>SARESP</h4>
-                <ul class="lista-destaque">
-                    <li>As metas são diferentes para Anos Iniciais, Finais e Ensino Médio.</li>
-                    <li>Metas também diferem entre escolas PEI e parciais.</li>
-                    <li>A nota do SARESP impacta o Super BI durante todo o ano (resultado fixo).</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>Apoio Presencial</h4>
-                <ul class="lista-destaque">
-                    <li>Apoios realizados em qualquer turma (inclusive Anos Iniciais) são contabilizados.</li>
-                    <li>O feedback dado na segunda-feira conta para a semana seguinte (sem prejuízo).</li>
-                </ul>
-            </div>
-        </div>
-        <p class="link-documento">📌 <a href="#" class="link-documento">Acesse o painel Super BI na Sala do Futuro</a></p>
-    </div>
-
-    <!-- ========== START by ALURA – VERSÃO DETALHADA ========= -->
-    <div id="tab-alura" class="tab-pane">
+    <!-- ========== START by ALURA (agora é a aba ativa por padrão) ========= -->
+    <div id="tab-alura" class="tab-pane active-pane">
         <div class="badge">Start by Alura</div>
         <h2>🤖 Programação e Pensamento Computacional</h2>
         <p><strong>Start by Alura</strong> é a plataforma que guia o ensino-aprendizagem dos componentes de Tecnologia e Inovação (EAF) e Programação (IF-EM). Por meio de atividades práticas e desenvolvimento de projetos, os estudantes usam a programação como meio para desenvolver habilidades relacionadas à computação: pensamento computacional, cultura e tecnologia digital, além de criatividade, espírito investigativo e trabalho em grupo.</p>
@@ -521,11 +433,11 @@
         </ul>
         <p class="link-documento">🔗 <a href="https://drive.google.com/drive/folders/1OMcxZAFp9ANm7wFyDvIul0gdmtXTFoj6" class="link-documento">Escopo-Sequência 2026 </a></p>
         <p class="link-documento">🔗 <a href="https://drive.google.com/file/d/1UWOZlhWeqdPEB6vi3yOa38LAwfi3AG0H/view?usp=drive_link" class="link-documento">Boletins 14</a></p>
-          <p class="link-documento">🔗 <a href="https://drive.google.com/file/d/1iXSyacWNw7PjHgWFJsRH-UOHfxto5otH/view?usp=drive_link" class="link-documento">Boletins 15</a></p>
+        <p class="link-documento">🔗 <a href="https://drive.google.com/file/d/1iXSyacWNw7PjHgWFJsRH-UOHfxto5otH/view?usp=drive_link" class="link-documento">Boletins 15</a></p>
         <p class="link-documento">🔗 <a href="https://drive.google.com/file/d/1H339brGdRoqlsid7aO3edxEVWGMXFYlz/view?usp=drive_link" class="link-documento">Boletins 16</a></p>
     </div>
 
-    <!-- ========== ROBÓTICA – DETALHADA ========= -->
+    <!-- ========== ROBÓTICA ========= -->
     <div id="tab-robotica" class="tab-pane">
         <div class="badge">Robótica</div>
         <h2>⚙️ Aprender fazendo: robótica educacional com micro:bit</h2>
@@ -603,7 +515,7 @@
         <p class="link-documento">📺 <a href="#" class="link-documento">Playlists tutoriais (YouTube)</a></p>
     </div>
 
-    <!-- ========== KHAN ACADEMY – DETALHADA ========= -->
+    <!-- ========== KHAN ACADEMY ========= -->
     <div id="tab-khan" class="tab-pane">
         <div class="badge">Khan Academy</div>
         <h2>📐 Matemática personalizada com tecnologia adaptativa</h2>
@@ -679,7 +591,6 @@
             <a href="https://drive.google.com/file/d/1qT5QiPZ8sL5BLSBdQLmlGE4naFc0ujCK/view?usp=sharing" target="_blank">
               Avaliação diagnóstica na Khan.mp4
             </a>
-
         </p>
         <h3>Aula Khan</h3>
         <p>
@@ -778,7 +689,7 @@
         <p class="link-documento">🗫 <a href="https://docs.google.com/document/d/1vu6Z2fcA2X1f_u2K4gkMSWVEzZ1UTMmk/edit?usp=sharing&ouid=101532812359216929017&rtpof=true&sd=true" class="link-documento">KHAN ACADEMY - FAQ</a></p>
     </div>
 
-    <!-- ========== MATIFIC – DETALHADA ========= -->
+    <!-- ========== MATIFIC ========= -->
     <div id="tab-matific" class="tab-pane">
         <div class="badge">Matific</div>
         <h2>🧮 Matemática gamificada para Anos Iniciais e Finais</h2>
@@ -813,8 +724,8 @@
           <p>
             <a href="https://www.matific.com/teachers/share-plan/_2026_Aulas_Regulares_de_Sao_Paulo_6_ANO_-cdf78ea4-54a1-4fe9-a9d1-232ae4d75eb6"><strong>6º ANO:</strong></a><br>
             <a href="https://www.matific.com/teachers/share-plan/_2026_Aulas_Regulares_de_Sao_Paulo_7_ANO-a64620f3-a770-48eb-aad6-3eb1ae100670"><strong>7º ANO:</strong></a><br>
-            <a href="https://www.matific.com/teachers/share-plan/_2026_Aulas_Regulares_de_Sao_Paulo_8_ANO_-0671936d-0061-4912-afdd-22c8090699eaa>"><strong>8º ANO:</strong></a><br>
-            <a href="https://www.matific.com/teachers/share-plan/_2026_Aulas_Regulares_de_Sao_Paulo_c98cad-9b8c-47da-814a-0204608af397"><strong>9º ANO:</strong></a><br>
+            <a href="https://www.matific.com/teachers/share-plan/_2026_Aulas_Regulares_de_Sao_Paulo_8_ANO_-0671936d-0061-4912-afdd-22c8090699ea"><strong>8º ANO:</strong></a><br>
+            <a href="https://www.matific.com/teachers/share-plan/_2026_Aulas_Regulares_de_Sao_Paulo_9_ANO-c98cad9b-9b8c-47da-814a-0204608af397"><strong>9º ANO:</strong></a><br>
           </p>   
 
         <h3>👩‍🏫 Orientações ao professor (ciclo quinzenal)</h3>
@@ -912,7 +823,6 @@
           <a href="https://help.matific.com/hc/pt-br/articles/16659148744977-Matific-Arena" target="_blank">Matific Arena (Em atualização)</a>
         </p>
 
-
         <h3>📞 Suporte Matific</h3>
        <ul>
             <li>WhatsApp: (11) 5555-0295</li>
@@ -922,7 +832,7 @@
         </ul>
     </div>
 
-    <!-- ========== PREPARA SP – DETALHADA ========= -->
+    <!-- ========== PREPARA SP ========= -->
     <div id="tab-prepara" class="tab-pane">
         <div class="badge">Prepara SP</div>
         <h2>🎯 Preparação para ENEM, Provão Paulista e vestibulares</h2>
@@ -998,7 +908,7 @@
         <p class="link-documento">📚 <a href="#" class="link-documento">Tutoriais para estudantes (Google Drive)</a></p>
     </div>
 
-    <!-- ========== SPEAK – DETALHADA ========= -->
+    <!-- ========== SPEAK ========= -->
     <div id="tab-speak" class="tab-pane">
         <div class="badge">Speak</div>
         <h2>🗣️ Inglês por nível de proficiência (A1 a C2)</h2>
@@ -1235,6 +1145,154 @@
         <p>Central de Atendimento SEDUC: 0800 77 000 12 ou <a href="#" class="link-documento">atendimento.educacao.sp.gov.br</a></p>
     </div>
 
+    <!-- ========== OMASP 2026 – OLIMPÍADA DE MATEMÁTICA ========= -->
+<div id="tab-omasp" class="tab-pane">
+    <div class="badge">Regulamento Oficial 2026</div>
+    <h2>🏆 Olimpíada de Matemática das Escolas Estaduais de São Paulo</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">A <strong>OMASP</strong> é uma competição estadual que visa melhorar a proficiência em Matemática, envolvendo estudantes dos Anos Finais do Ensino Fundamental e Ensino Médio. A participação é automática para quem realiza a Prova Paulista do 1º bimestre.</p>
+
+    <h3>📌 Disposições Gerais</h3>
+    <p>Realizada pela SEDUC-SP com apoio da Associação Olimpíada Brasileira de Matemática (AOBM), a OMASP contribui para o aprimoramento do ensino e da aprendizagem de Matemática, abrangendo unidades temáticas como Geometria, Aritmética, Álgebra, Números, Grandezas e Medidas, Probabilidade e Estatística, e Lógica.</p>
+
+    <div class="card-grid">
+        <div class="card card-azul">
+            <h3>🎯 Objetivo</h3>
+            <p>Potencializar as aprendizagens relacionadas ao componente de Matemática, envolvendo todas as unidades temáticas do currículo paulista.</p>
+        </div>
+        <div class="card card-azul">
+            <h3>👥 Público-alvo</h3>
+            <ul>
+                <li>Anos Finais do EF: 6º, 7º, 8º e 9º anos</li>
+                <li>Ensino Médio: 1ª, 2ª e 3ª séries</li>
+                <li>Escolas de Ensino Regular e Tempo Integral</li>
+            </ul>
+        </div>
+        <div class="card card-azul">
+            <h3>📊 Níveis de competição</h3>
+            <ul>
+                <li><strong>Nível 1:</strong> 6º e 7º anos</li>
+                <li><strong>Nível 2:</strong> 8º e 9º anos</li>
+                <li><strong>Nível 3:</strong> 1ª, 2ª e 3ª séries do EM</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>⚙️ Etapas da OMASP</h3>
+
+    <div class="card-grid">
+        <div class="card card-vermelho">
+            <h4>📝 FASE I – Prova Paulista</h4>
+            <ul>
+                <li>Eliminatória e classificatória.</li>
+                <li>Seleciona <strong>30% dos participantes por escola/ano/série</strong> com maior número de acertos em Matemática.</li>
+                <li>Empates na nota de corte também são classificados.</li>
+                <li>Resultado em até 12 dias úteis após a Prova Paulista do 1º bimestre.</li>
+            </ul>
+        </div>
+        <div class="card card-vermelho">
+            <h4>💻 FASE II – Classificação Municipal (on-line)</h4>
+            <ul>
+                <li>Prova on-line aplicada <strong>na escola</strong> nos dias:</li>
+                <ul>
+                    <li><strong>19/05 (Nível 3)</strong> – 1ª a 3ª série EM</li>
+                    <li><strong>20/05 (Nível 2)</strong> – 8º e 9º anos</li>
+                    <li><strong>21/05 (Nível 1)</strong> – 6º e 7º anos</li>
+                </ul>
+                <li>20 questões de múltipla escolha, duração 1h20.</li>
+                <li>Classificação por município (ou por URE em Campinas, Guarulhos e SP).</li>
+                <li>Máximo de <strong>15% de alunos premiados por escola/ano/série/turno</strong>.</li>
+            </ul>
+        </div>
+        <div class="card card-vermelho">
+            <h4>🏅 FASE III – Classificação Estadual (on-line)</h4>
+            <ul>
+                <li>Participam os medalhistas de <strong>OURO da Fase II</strong>.</li>
+                <li>Prova única no dia <strong>06 de agosto de 2026, às 9h</strong>, em locais definidos pelas UREs.</li>
+                <li>Classificação final por Nível para todo o Estado.</li>
+                <li>Primeiros colocados recebem convite para a <strong>OBM 2026</strong>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>🏅 Premiações</h3>
+
+    <h4>🎖️ Fase II – Por município (sobre o total de participantes do município/ano/série/turno)</h4>
+    <div class="table-responsive">
+        <table>
+            <thead><tr><th>Classificação</th><th>Percentual</th><th>Medalha</th></tr</thead>
+            <tbody>
+                <tr><td>0% a 0,6%</td><td>0,6% melhores</td><td>🥇 OURO</td></tr>
+                <tr><td>Acima de 0,6% até 2%</td><td>1,4% seguintes</td><td>🥈 PRATA</td></tr>
+                <tr><td>Acima de 2% até 5%</td><td>3% seguintes</td><td>🥉 BRONZE</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p><strong>Critério de desempate na Fase II:</strong> maior número de acertos na Fase I (Prova Paulista) e depois a presença do estudante na escola.</p>
+
+    <h4>🏫 Premiação para Professores e Escolas</h4>
+    <ul class="lista-destaque">
+        <li><strong>Professores:</strong> medalha olímpica – um por escola (até 700 alunos) ou dois (acima de 700), conforme desempenho dos estudantes premiados.</li>
+        <li><strong>Escolas:</strong> medalha para o diretor – cerca de 20% melhores escolas por URE.</li>
+        <li><strong>UREs:</strong> troféu olímpico para as que atingirem ≥90% de participação ou crescimento em relação a 2024/2025 na Fase II.</li>
+    </ul>
+
+    <h4>🌟 Fase III – Por Nível (Estadual)</h4>
+    <div class="table-responsive">
+        <table>
+            <thead><tr><th>Medalha</th><th>Quantidade por Nível</th></tr</thead>
+            <tbody>
+                <tr><td>🥇 OURO</td><td>75</td></tr>
+                <tr><td>🥈 PRATA</td><td>170</td></tr>
+                <tr><td>🥉 BRONZE</td><td>400</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p><strong>Desempate na Fase III:</strong> maior número de acertos na Fase II, depois Fase I, e por fim presença na escola.</p>
+
+    <div class="callout">
+        <p><strong>📢 Atenção:</strong> Os 75 medalhistas de ouro de cada Nível na Fase III serão convidados a participar da <strong>Olimpíada Brasileira de Matemática (OBM)</strong> em outubro de 2026 e também a encontros, visitas e palestras na cidade de São Paulo.</p>
+    </div>
+
+    <h3>📅 Cronograma resumido</h3>
+    <div class="table-responsive">
+        <table>
+            <thead><tr><th>Etapa</th><th>Data</th><th>Detalhe</th></tr></thead>
+            <tbody>
+                <tr><td>Fase I (Prova Paulista)</td><td>1º bimestre 2026</td><td>Inscrição automática</td></tr>
+                <tr><td>Divulgação classificados Fase II</td><td>Até 12 dias úteis após a Prova Paulista</td><td>30% por escola/ano</td></tr>
+                <tr><td>Fase II – Nível 1</td><td>21/05/2026</td><td>6º e 7º anos</td></tr>
+                <tr><td>Fase II – Nível 2</td><td>20/05/2026</td><td>8º e 9º anos</td></tr>
+                <tr><td>Fase II – Nível 3</td><td>19/05/2026</td><td>1ª a 3ª EM</td></tr>
+                <tr><td>Divulgação premiados Fase II</td><td>Até 12 dias úteis após as provas</td><td>Medalhas municipais</td></tr>
+                <tr><td>Fase III</td><td>06/08/2026 (9h)</td><td>Somente medalhistas de ouro da Fase II</td></tr>
+                <tr><td>Divulgação vencedores Fase III</td><td>Até 10 dias úteis após a prova</td><td>Classificação estadual</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>❓ Regras importantes</h3>
+    <div class="card-grid">
+        <div class="card">
+            <h4>🔒 Proibido consulta</h4>
+            <p>Qualquer consulta durante as provas on-line acarreta desclassificação imediata.</p>
+        </div>
+        <div class="card">
+            <h4>📅 Sem segunda chamada</h4>
+            <p>Não haverá reposição da prova por falta de energia ou outros motivos. Apenas em caso de feriado municipal a URE define nova data.</p>
+        </div>
+        <div class="card">
+            <h4>📄 Inscrição automática</h4>
+            <p>A realização da Prova Paulista do 1º bimestre de 2026 já inscreve o estudante na OMASP.</p>
+        </div>
+        <div class="card">
+            <h4>📧 Dúvidas</h4>
+            <p>Envie e-mail para <strong>olimpiadassp@educacao.sp.gov.br</strong></p>
+        </div>
+    </div>
+
+    <p class="link-documento">📌 <a href="https://docs.google.com/document/d/1bDZn--u2hDAFzryz8NOHneIWcM7pBGAC/edit?usp=drive_link&ouid=101532812359216929017&rtpof=true&sd=true" class="link-documento">Regulamento completo (PDF)</a></p>
+</div>
+
 </main>
 
 <footer>
@@ -1248,21 +1306,23 @@
 </footer>
 
 <script>
-    const tabs = document.querySelectorAll('.tab-button');
+    // Seleciona todos os botões de aba (excluindo o link externo pela classe .link-externo-aba)
+    const tabs = document.querySelectorAll('.tab-button:not(.link-externo-aba)');
     const panes = document.querySelectorAll('.tab-pane');
 
     tabs.forEach(btn => {
         btn.addEventListener('click', () => {
-            tabs.forEach(b => b.classList.remove('active'));
-            panes.forEach(p => p.classList.remove('active-pane'));
-
+            // Remove active de todos os botões (apenas os .tab-button)
+            document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            // Esconde todos os painéis e mostra o correspondente
+            panes.forEach(p => p.classList.remove('active-pane'));
             const tabId = btn.getAttribute('data-tab');
             document.getElementById(`tab-${tabId}`).classList.add('active-pane');
             window.scrollTo({ top: 130, behavior: 'smooth' });
         });
     });
 </script>
-
 </body>
 </html>
