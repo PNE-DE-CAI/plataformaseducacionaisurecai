@@ -1270,7 +1270,28 @@
             <p>Envie e-mail para <strong>olimpiadassp@educacao.sp.gov.br</strong></p>
         </div>
     </div>
+<!-- Botão do Chat -->
+<div id="chat-button" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #007bff; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1000;">
+    <span style="font-size: 30px;">💬</span>
+</div>
 
+<!-- Janela do Chat (Iframe) -->
+<div id="chat-window" style="position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; border: 1px solid #ccc; border-radius: 10px; overflow: hidden; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; background: white;">
+    <iframe src="https://pne-de-cai.github.io/assistente-omasp-/" style="width: 100%; height: 100%; border: none;"></iframe>
+</div>
+
+<script>
+    const chatButton = document.getElementById('chat-button');
+    const chatWindow = document.getElementById('chat-window');
+
+    chatButton.onclick = function() {
+        if (chatWindow.style.display === 'none') {
+            chatWindow.style.display = 'block';
+        } else {
+            chatWindow.style.display = 'none';
+        }
+    };
+</script>
     <p class="link-documento">📌 <a href="https://docs.google.com/document/d/1bDZn--u2hDAFzryz8NOHneIWcM7pBGAC/edit?usp=drive_link&ouid=101532812359216929017&rtpof=true&sd=true" class="link-documento">Regulamento completo (PDF)</a></p>
 </div>
 
